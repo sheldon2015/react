@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
 
+<!DOCTYPE>
+
 <head>
     <meta charset="UTF-8" />
     <title>Hello React!</title>
-    <script src="./../react-15.0.2/build/react.js"></script>
-    <script src="./../react-15.0.2/build/react-dom.js"></script>
-    <script src="./../react-15.0.2/build/browser.min.js"></script>
+    <script src="./../react-15.3.1/build/react.js"></script>
+    <script src="./../react-15.3.1/build/react-dom.js"></script>
+    <script src="./../browser.min.js"></script>
+    <style>
+        input {
+            height: 40px;
+            width: 100px;
+            border: 1px solid black;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,9 +26,10 @@
         var temp = array.map(function(el, index, arr) {
             return el * 3
         })
-        console.log(temp)
+        console.log(temp);
     </script>
 
 </body>
+
 
 </html>
