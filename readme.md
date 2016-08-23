@@ -21,19 +21,19 @@
      3.  组件和状态(共同决定组建的render结果)
 
      区别:
-     
+
      组件状态维护在组件内部，属性是有外部传入组件,由外部控制
 
      状态API:
 
      getInitialState(){
 
-         return  变量  
-         
+         return  变量
+
      }
 
      属性API:
-     
+
     getDefaultProps(){
 
     }
