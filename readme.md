@@ -32,11 +32,38 @@
 
      }
 
-     属性API:
+    props属性:
 
-    getDefaultProps(){
+    props单向流动
 
-    }
+    getDefaultProps(){}
+
+    props的children属性
+
+    无状态组件的props属性
+
+    4. react组建的生命周期、
+
+
+    5. 获取dom元素
+
+    ReactDOM.findDOMNode()(不能用到无状态的组件)
+
+
+    子元素上通过ref标示，然后通过refs访问子元素。
+
+    6. 绑定事件
+
+    7. 表单元素和表单事件，有别于html中的
+
+        受控组件
+
+        非受控组件
+    
+
+
+
+
 
 
 
