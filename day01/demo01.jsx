@@ -1,5 +1,8 @@
 var Hello = React.createClass(
     {
+
+
+        
         render: function () {
             return (
 
@@ -19,7 +22,6 @@ var World = React.createClass({
         return {
             name: 'bbbbbbbbbbbbbbbbbbbb'
         }
-
     },
     componentDidMount() {
         //findDomNode方法
@@ -31,25 +33,51 @@ var World = React.createClass({
         console.log(name);
 
         var children = this.refs.children
-        console.log(children);
+        console.log('children', children);
 
     },
 
-    clickHandler() {
-        alert('react  事件绑定')
+    getInitialState() {
+
+        return {
+            value: ''
+        }
+
     },
 
-    handleChange() {
-        alert(999999)
+    clickHandler(event) {
+        console.log('event', event); // => nullified object.
+        console.log('event', event.type); // => "click"
+        var eventType = event.type; // => "click"
+
+        //异步函数
+
+        setTimeout(function () {
+            console.log(event.type); // => null
+            console.log(eventType); // => "click"
+        });
+
+        this.setState({ clickEvent: event }); // Won't work. this.state.clickEvent will only contain null values.
+        this.setState({ eventType: event.type }); // You can still export event properties.
+
+        console.log('event', event)
+        console.log('event', event.type);
+
+        //当事件中的函数执行完之后，再去执行异步函数，异步函数执行之前，event对象指向null，除非调用event.persist()
+    },
+
+    handleChange(event) {
+        this.setState({
+            value: event.target.value
+        })
 
     },
     handleChange2() {
-        alert(666666)
 
     },
 
     render() {
-        //驼峰式命名
+        //驼峰式命名(有前缀的使用大驼峰，ms除外)
         var style = {
             backgroundColor: 'red',
             height: 100,
@@ -57,8 +85,6 @@ var World = React.createClass({
         }
 
         return (
-
-
             <div>
                 <div ref='name' >{this.props.name }</div>
                 <div ref='children'>{this.props.children}</div>
@@ -70,10 +96,10 @@ var World = React.createClass({
                 </select>
 
                 {/*非受控组建，defaultValue设置默认值 */}
-                <input type="text" defaultValue='zzzzzzzzzzzzzzzzzz'/>
+                <input onChange={this.handleChange} type="text" defaultValue=''/>
 
                 {/*受控组建 */}
-                <input style={style}   onChange={this.handleChange}  type="text" value='zzzzzzzzzzzzzzzzzz'/>
+                <input style={style} type="text" value={this.state.value}/>
             </div>
 
 
@@ -82,16 +108,22 @@ var World = React.createClass({
 });
 
 var Checkbox = React.createClass({
-    handleChange() {
-        this.setState({
-            check: !this.state.check
+    handleChange(event) {
+        this.setState({ check: !this.state.check });
 
-        });
+        // 调用这个方法后，即便state中的check值发生变化，在浏览器中重新render不会有作用
+        //event.preventDefault();
 
         //直接修改state,不会修改state的值
-        this.state.class === 'classA' ? 'classB' : 'classA';
+        // this.state.class === 'classA' ? 'classB' : 'classA';
+    },
+    handleClick(event) {
+        // setTimeout(() => {
+        this.setState({ check: !this.state.check });
+        // })
+        //调用这个方法后，即便state中的check值发生变化，在浏览器中重新render不会有作用
+        event.preventDefault();
 
-        console.log(this.state.class)
     },
     getInitialState() {
         return {
@@ -103,10 +135,12 @@ var Checkbox = React.createClass({
         /* state对象管理状态 */
         /* props对象管理 */
         console.log('render  again')
+
         return (
             <div>
                 {/*驼峰命名*/}
-                <input onChange={this.handleChange} type='checkbox' className={this.state.class} checked={this.state.check} />
+                <input onClick={this.handleClick} onChange={this.handleChange}
+                    type='checkbox' className={this.state.class} checked={this.state.check} />
             </div>
         )
 
@@ -141,8 +175,6 @@ var ListView = React.createClass({
                     <div> 实验props的children属性3</div>
                     <div> 实验props的children属性4</div>
                     <Hello/>
-                    <Checkbox/>
-
                 </World>
                 <StatelessComponent  name='yaowenzhu'/>
             </div>
@@ -151,7 +183,7 @@ var ListView = React.createClass({
 });
 
 ReactDOM.render(
-    <ListView  name='aaaaaa'/>, document.getElementById('example')
+    <ListView name='aaaaaa'/>, document.getElementById('example')
 );
 
 

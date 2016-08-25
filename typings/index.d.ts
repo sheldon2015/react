@@ -1,1 +1,1 @@
-/// <reference path="globals/react-global/index.d.ts" />
+/// <reference path="globals/react/index.d.ts" />
