@@ -74,10 +74,10 @@
 
         MVC:
 
-            * Model： 负责保存应用数据，和后端交互同步应用数据
+            - Model： 负责保存应用数据，和后端交互同步应用数据
 
-            * View： 负责渲染页面 HTML DOM
+            - View： 负责渲染页面 HTML DOM
 
-            * Controller： 负责连接 View 和 Model ， Model 的任何改变会应用到 View 中，View 的操作会通过 Controller 应用到 Model 中
+            - Controller： 负责连接 View 和 Model ， Model 的任何改变会应用到 View 中，View 的操作会通过 Controller 应用到 Model 中
 
-            * 关系：Model, View, Controller 都是多对多关系。
+            - 关系：Model, View, Controller 都是多对多关系。
