@@ -28,8 +28,6 @@
     </div>
     <script>
         //reducer函数处理业务逻辑,纯函数
-
-
         function counter(
             initialState = {
                 state1: 0,
@@ -66,9 +64,6 @@
                     return initialState
             }
         }
-
-
-
         //有reducer生成store,引入store后react app中的状态由store管理
         var store = Redux.createStore(counter)
 
@@ -84,15 +79,9 @@
 
         }
         render()
-
-
-
-        //注册收到action的事件,手动订阅更新
+            //注册收到action的事件,手动订阅更新
         store.subscribe(render)
-
-
-
-        //
+            //
         document.getElementById('increment')
             .addEventListener('click', function() {
                 //分发action，由store触发事件，渲染view

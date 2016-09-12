@@ -66,22 +66,36 @@
 
 	4. 在store内部会有监听action处理数据的函数以及触发事件的函数每次在dispatcher中只有一个action可以通过   
 
+	5.  在flux架构中经常会把react组件进行分类container组件和presentation组件,容器组建位于顶层,通常处理路由,与redux直接联系获取state和向redux发起action
+	而presentation组件则是从唯一入口props获取state和回调函数
+	
+
 -  **flux架构的redux实现**   
 	
 	
-	redux的三大原则
+**redux的三大原则**
 	
-	1. 单一数据源,数据全部管理在唯一的store中
+1. 单一数据源,数据全部管理在唯一的store中
+2. state状态数据是只读的
+3. store中数据(状态)的改变,只能通过触发action,由纯函数(reducer)修改
 
-	2. store中数据(状态)的改变,只能通过触发action
+**redux理解**
 
-	3. react-redux绑定react和redux库，建立view和store之间的联系
+1.	store建立reducer和action之间的联系
 
+2.	reducer处理业务逻辑，在reducer函数中要注意一些方面
 
+	1. state状态不可修改,只能产生新的state
 
-- **redux理解**
+	2. 在default状态下和遇到未知的action都要返回旧的state
 
-	1.	
+	3. 如果没有的旧的state,就要返回初始的state,不然state会被重置为undefined
+
+**react-redux**
+
+1. 提供proveider接口，作用有把store保存的context,便于后面的connect去取这个store
+2. connect方法
+
 
  
 
