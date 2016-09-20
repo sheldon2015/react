@@ -47,8 +47,6 @@
                     //object.assign({},a,b)第一个参数必须为空，不然返回的就是修改的a
                     //可以用扩展符号...来处理,{...a,...b}(es7中的语法)
 
-
-
                     return Object.assign({}, initialState, {
                         state1: initialState.state1 + 1
                     });
@@ -64,6 +62,11 @@
                     return initialState
             }
         }
+
+
+
+
+
         //有reducer生成store,引入store后react app中的状态由store管理
         var store = Redux.createStore(counter)
 
@@ -71,17 +74,33 @@
         var valueEl = document.getElementById('value')
         var buttonEl = document.getElementById('button')
 
+
+
         function render() {
+            console.log('render1 function')
             valueEl.innerHTML = store.getState().state1
                 //将具有length属性的数据结构转为数组
                 //[].slice.call(buttonEl.classList);
             buttonEl.setAttribute('class', store.getState().toggle)
 
         }
+
+
+
+
         render()
-            //注册收到action的事件,手动订阅更新
+
+
+        function render2() {
+
+            console.log('render2 function')
+        }
+
+        //注册收到action的事件,手动订阅更新
         store.subscribe(render)
+        store.subscribe(render2)
             //
+
         document.getElementById('increment')
             .addEventListener('click', function() {
                 //分发action，由store触发事件，渲染view
