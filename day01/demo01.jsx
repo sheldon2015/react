@@ -1,8 +1,5 @@
 var Hello = React.createClass(
     {
-
-
-        
         render: function () {
             return (
 
@@ -27,13 +24,24 @@ var World = React.createClass({
         //findDomNode方法
         var el = ReactDOM.findDOMNode(this);
         console.log(el);
+        console.log(this)
 
         //refs访问子节点
         var name = this.refs.name
-        console.log(name);
+        console.log('name', name);
+        console.log('name1', ReactDOM.findDOMNode(name));
 
         var children = this.refs.children
         console.log('children', children);
+        console.log('children1', ReactDOM.findDOMNode(children));
+        console.log('children2', children.getDOMNode());
+
+        var zzzz = this.refs.zzzz
+        console.log('zzzz', zzzz);
+
+        console.log('zzzz1', ReactDOM.findDOMNode(zzzz));
+
+
 
     },
 
@@ -86,6 +94,12 @@ var World = React.createClass({
 
         return (
             <div>
+                <Hello ref='zzzz'>
+                    <div> 实验props的children属性1</div>
+                    <div> 实验props的children属性2</div>
+                    <div> 实验props的children属性3</div>
+                    <div> 实验props的children属性4</div>
+                </Hello>
                 <div ref='name' >{this.props.name }</div>
                 <div ref='children'>{this.props.children}</div>
                 <button  onClick={this.clickHandler} >绑定事件</button>
@@ -169,7 +183,7 @@ var ListView = React.createClass({
                 <ul>
                     { s }
                 </ul >
-                <World name='zzzzzzzzzzzzzzzzzzzzzzzzzzzzz'>
+                <World name='zzzz'>
                     <div> 实验props的children属性1</div>
                     <div> 实验props的children属性2</div>
                     <div> 实验props的children属性3</div>
