@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Redux 的基本使用</title>
+    <script src="../redux.min.js"></script>
+    <style>
+        .classA {
+            background: red;
+        }
+        
+        .classB {
+            background: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>
+            <button id='button' class=''>Clicked:</button>
+            <span id="value">0</span> times
+            <button id="increment">+</button>
+            <button id="decrement">-</button>
+            <button id="incrementIfOdd">Increment if odd</button>
+            <button id="incrementAsync">Increment async</button>
+        </p>
+    </div>
+    <script>
+        //reducer函数处理业务逻辑,纯函数
+        function counter(
+            initialState = {
+                state1: 0,
+                toggle: 'classA'
+            }, action) {
+
+            //第一次渲染的时候，可以给initialState设置初始值就不需要下面的判断,利用es2105中的语法给函数设置初始值
+            // if (typeof initialState === 'undefined') {
+            //     return {
+            //         state1: 0,
+            //         toggle: 'classA'
+            //     }
+            // }
+            switch (action.type) {
+                case 'INCREMENT':
+
+                    //object.assign({},a,b)第一个参数必须为空，不然返回的就是修改的a
+                    //可以用扩展符号...来处理,{...a,...b}(es7中的语法)
+
+                    return Object.assign({}, initialState, {
+                        state1: initialState.state1 + 1
+                    });
+                case 'DECREMENT':
+                    return Object.assign({}, initialState, {
+                        state1: initialState.state1 - 1
+                    });
+                case 'TOGGLE':
+                    return Object.assign({}, initialState, {
+                        toggle: initialState.toggle === 'classA' ? 'classB' : 'classA'
+                    });
+                default:
+                    return initialState
+            }
+        }
+
+
+
+
+
+        //有reducer生成store,引入store后react app中的状态由store管理
+        var store = Redux.createStore(counter)
+
+
+        var valueEl = document.getElementById('value')
+        var buttonEl = document.getElementById('button')
+
+
+
+        function render() {
+            console.log('render1 function')
+            valueEl.innerHTML = store.getState().state1
+                //将具有length属性的数据结构转为数组
+                //[].slice.call(buttonEl.classList);
+            buttonEl.setAttribute('class', store.getState().toggle)
+
+        }
+
+
+
+
+        render()
+
+
+        function render2() {
+
+            console.log('render2 function')
+        }
+
+        //注册收到action的事件,手动订阅更新
+        store.subscribe(render)
+        store.subscribe(render2)
+            //
+
+        document.getElementById('increment')
+            .addEventListener('click', function() {
+                //分发action，由store触发事件，渲染view
+                store.dispatch({
+                    type: 'INCREMENT'
+
+                })
+            })
+        document.getElementById('decrement')
+            .addEventListener('click', function() {
+                store.dispatch({
+                    type: 'DECREMENT'
+                })
+            })
+        document.getElementById('incrementIfOdd')
+            .addEventListener('click', function() {
+                if (store.getState().state1 % 2 !== 0) {
+                    store.dispatch({
+                        type: 'INCREMENT'
+                    })
+                }
+            })
+        document.getElementById('button')
+            .addEventListener('click', function() {
+
+                store.dispatch({
+                    type: 'TOGGLE'
+                })
+
+            })
+        document.getElementById('incrementAsync')
+            .addEventListener('click', function() {
+                setTimeout(function() {
+                    store.dispatch({
+                        type: 'INCREMENT'
+                    })
+                }, 1000)
+            })
+    </script>
+</body>
+
+</html>
