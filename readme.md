@@ -158,6 +158,6 @@
 
     不会产生副作用如路由跳转  I/O操作等)
 
-     store 
+     store
 
     [参考](http://gold.xitu.io/search/flux)
