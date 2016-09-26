@@ -48,8 +48,9 @@
 
 
     5. 获取dom元素
+    （原生元素和自定义组件，统称react组件）
 
-    ReactDOM.findDOMNode()(不能用到无状态的组件)
+    ReactDOM.findDOMNode(react组件)(不能用到无状态的组件)
 
 
     子元素上通过ref标示，然后通过refs访问子元素。
