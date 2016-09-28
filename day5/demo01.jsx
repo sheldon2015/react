@@ -15,10 +15,8 @@ const Sub = React.createClass({
 
 const Hello = React.createClass(
     {
-
         render() {
             const {onIncrease, onDecrease, value} = this.props;
-            console.log('value', value)
             return (
                 <div>
                     <p>{value}</p>
@@ -30,15 +28,44 @@ const Hello = React.createClass(
         }
     }
 );
+const Hello2 = React.createClass(
+    {
+        render() {
+            const { value, actions} = this.props;
+            console.log('actions', actions)
+            return (
+                <div>
+                    <p>{value}</p>
+                    <button  onClick={actions.increaseActionCreator}>点击增加</button>
+                    <button  onClick={actions.decreaseActionCreator} >点击减少</button>
+                    <Sub  background={value}    />
+                </div>
+            )
+        }
+    }
+
+);
+const Hello3 = React.createClass(
+    {
+        render() {
+            const { value} = this.props;
+            console.log('this.props',this.props)
+          
+            return (
+                <div>
+                    <p>{value}</p>
+                    <button  >点击增加</button>
+                    <button   >点击减少</button>
+                    <Sub  background={value}    />
+                </div>
+            )
+        }
+    }
+);
 
 const Provider = ReactRedux.Provider;
 
-
-
 const {INCREASE, DECREASE} = { INCREASE: 'increase', DECREASE: 'decrease' }
-
-
-
 
 // const increase = () => {
 //     store.dispatch({ type: INCREASE })
@@ -47,14 +74,11 @@ const {INCREASE, DECREASE} = { INCREASE: 'increase', DECREASE: 'decrease' }
 //     store.dispatch({ type: DECREASE })
 // }
 
-
-
-
-
 function mapStateToProps(state) {
-    console.log(state)
+    console.log('state', state)
     return {
         value: state.value
+
     }
 }
 
@@ -66,10 +90,70 @@ function mapDispatchToProps(dispatch) {
 }
 
 
+function mapStateToProps2(state, ownProps) {
+    console.log('state', state)
+    console.log('ownProps', ownProps)
+    return {
+        value: state.value
+
+    }
+}
+
+
+function increaseActionCreator() {
+    return {
+        type: INCREASE
+    }
+
+}
+function decreaseActionCreator() {
+    return {
+        type: DECREASE
+    }
+
+}
+
+
+function mapDispatchToProps2(dispatch) {
+    console.log('dispatch', dispatch)
+    return { actions: Redux.bindActionCreators({ increaseActionCreator, decreaseActionCreator }, dispatch) }
+}
+
+
+
+
 const App = ReactRedux.connect(
     mapStateToProps,
     mapDispatchToProps
 )(Hello)
+
+//connect函数返回一个新的组件
+const App2 = ReactRedux.connect(
+    mapStateToProps2,
+    mapDispatchToProps2
+)(Hello2)
+
+
+
+
+function increaseActionCreator3() {
+    return {
+        type: INCREASE
+    }
+
+}
+
+
+function mapStateToProps3(state, ownProps) {
+   
+    return {
+        value: state.value
+
+    }
+}
+
+const App3 = ReactRedux.connect( mapStateToProps3,
+    increaseActionCreator3)(Hello3)
 
 
 
@@ -82,9 +166,9 @@ const reducer = (
         case INCREASE:
             return (
                 {
-                      ...state,
+                            ...state,
     value: state.value + 1                                
-                }  
+                        }  
                     );
         case DECREASE:
 return Object.assign({}, state, {
@@ -93,7 +177,7 @@ return Object.assign({}, state, {
         default:
 return state;
                 
-            }
+                    }
     }
 
 const store = Redux.createStore(reducer);
@@ -103,7 +187,12 @@ const render = () => {
         // <Hello state={store.getState() } onDecrease={decrease} onIncrease={increase} />, 
 
         <Provider store={store}>
-            <App />
+            <div>
+                <App />
+                <App2 />
+                <App3 />
+            </div>
+
         </Provider>,
 
         document.querySelector('#app'))

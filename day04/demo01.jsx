@@ -52,25 +52,23 @@ const decrease = () => {
 const reducer = (
     state = {
         value: 1
-
     }, action) => {
 
     switch (action.type) {
         case INCREASE:
             return (
-                {
+                       {
                                 ...state,
 
-    value: state.value + 1
-                                
+                                value: state.value + 1                                
                         }  
                     );
         case DECREASE:
-return Object.assign({}, state, {
-    value: state.value - 1
-})
+             return Object.assign({}, state, {
+                         value: state.value - 1
+                    })
         default:
-return state;
+                  return {...state};
     }
 }
 
