@@ -1,6 +1,4 @@
-
 var nameArry = ['a', 'b', 'c', 'd'];
-
 
 var Button = React.createClass({
 
@@ -11,7 +9,6 @@ var Button = React.createClass({
         }
     },
     _clickHandle(event) {
-
 
         nameArry.push('zzzz')
 
@@ -27,24 +24,21 @@ var Button = React.createClass({
         var name = this.state.name;
 
         var temp = name.map((el, index, arr) => {
-            return <li key={index}>{el}</li>
+            return <li key={ index }>
+                     { el }
+                   </li>
         })
 
         return (
             <div>
-                <input className={this.state.class}   onClick={this._clickHandle}   type="button"  value='button'/>
-                <ul>
-                    {temp}
-                </ul>
-
+              <input className={ this.state.class } onClick={ this._clickHandle } type="button" value='button' />
+              <ul>
+                { temp }
+              </ul>
             </div>
         )
     }
 })
 
-
-
-
-
-
-ReactDOM.render(<Button/>, document.querySelector('#example'));
+ReactDOM.render(
+    <Button/>, document.querySelector('#example'));
