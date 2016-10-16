@@ -4,7 +4,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: {
-        day09_1: ['./src/demo1.jsx'],
+        day09_1: ['./src/demo1.jsx','./src/demo2.jsx'],
         vendor: ['react', 'react-dom']
     },
     output: {
@@ -19,7 +19,7 @@ module.exports = {
             .optimize
             .CommonsChunkPlugin("vendor", "vendor.bundle.js"),
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin("[name].css", {allChunks: true})
+        new ExtractTextPlugin("[name].css"/*, {allChunks: true}*/)
     ],
 
     devServer: {

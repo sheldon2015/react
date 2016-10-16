@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDom from 'react-dom'
 require('./common.css');
 require('./index2.css');
+console.log('demo02')
 
 const Hello = React.createClass({
 
@@ -19,3 +20,4 @@ const Hello = React.createClass({
 
 ReactDom.render(
     <Hello/>, document.querySelector('#container2'));
+

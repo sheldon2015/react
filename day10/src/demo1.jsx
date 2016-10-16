@@ -4,6 +4,7 @@ import sync from './sync';
 
 require('./common.css');
 require('./index1.css');
+console.log('demo01')
 
 require.ensure(['./async'], function (require) {
 

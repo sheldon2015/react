@@ -21,13 +21,11 @@ day01---------------------------
 
 module.exports = {
     entry: {
-        day02_1: [
-            './src/demo1.js', './src/demo2.js', './src/demo3.js'
-        ],
-        day02_2: ['./src/demo2.js', './src/demo3.js']
+        day02_1: ['./src/demo1.js', './src/demo2.js', './src/demo3.js']
+
     },
     output: {
         path: './dist/',
-        filename: '[name][hash].js'
+        filename: '[name].js'
     }
 }

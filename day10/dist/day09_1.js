@@ -3,7 +3,8 @@ webpackJsonp([0],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(1);
+	__webpack_require__(1);
+	module.exports = __webpack_require__(185);
 
 
 /***/ },
@@ -29,6 +30,7 @@ webpackJsonp([0],{
 
 	__webpack_require__(174);
 	__webpack_require__(180);
+	console.log('demo01');
 
 	__webpack_require__.e/* nsure */(1, function (require) {
 
@@ -398,6 +400,55 @@ webpackJsonp([0],{
 /***/ },
 
 /***/ 180:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 185:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(35);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	__webpack_require__(174);
+	__webpack_require__(186);
+	console.log('demo02');
+
+	var Hello = _react2.default.createClass({
+	    displayName: 'Hello',
+	    render: function render() {
+
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            'webpack demo using jsx',
+	            _react2.default.createElement(
+	                'p',
+	                null,
+	                'demo02'
+	            )
+	        );
+	    }
+	});
+
+	_reactDom2.default.render(_react2.default.createElement(Hello, null), document.querySelector('#container2'));
+
+	exports.mydefine = 1;
+
+/***/ },
+
+/***/ 186:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

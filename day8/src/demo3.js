@@ -18,3 +18,5 @@ var s = 333333333333333;
 var s = 333333333333333;
 var s = 333333333333333;
 console.log('ssssss', s)
+
+exports.mydefine = 3;
