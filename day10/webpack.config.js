@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlwebpackPlugin = require("html-webpack-plugin");
 const OpenBrowserPlugin = require("open-browser-webpack-plugin");
+const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
+const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 module.exports = {
     entry: {
@@ -19,23 +21,23 @@ module.exports = {
     },
     plugins: [
 
-        new webpack
-            .optimize
-            .CommonsChunkPlugin("vendor", "vendor.bundle.js"),
+        new CommonsChunkPlugin("vendor", "vendor.bundle.js"),
         new webpack.HotModuleReplacementPlugin(),
         new ExtractTextPlugin("name.css"/*, {allChunks: true}*/),
-        new webpack
-            .optimize
-            .UglifyJsPlugin({
-                compress: {
-                    warnings: false
-                }
-            }),
-        new OpenBrowserPlugin({url: 'http://127.0.0.1:3001'}),
-        new HtmlwebpackPlugin({title: 'Webpack-demos', filename: 'index.html'})
+        new UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
+        new HtmlwebpackPlugin({title: 'Webpack-demos', filename: 'index.html'}),
+        new OpenBrowserPlugin({url: 'http://localhost:3000',browser:'chrome', ignoreErrors: true})
     ],
 
-    // devServer: {     hot: true,     inline: true,     port: 3000 },
+    devServer: {
+        hot: true,
+        inline: true,
+        port: 3000
+    },
     module: {
 
         loaders: [
