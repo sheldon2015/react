@@ -116,6 +116,19 @@
 
     separate 样式文件：
 
+    用到ExtractTextPlugin插件,在插件函数里面可以配置`allChunks`的bool值来决定是否提取所有chunk的样式文件
+
+    样式文件模块化：
+
+    class类样式文件可以局部化，在导入样式时`require('css')`可以导入样式对象，但只会映射局部类文件，全剧样式不会导入
+
+    ```js
+    css-loader?modules
+
+    ```
+
+
+
     
 
 

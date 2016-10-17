@@ -1,20 +1,20 @@
 console.log(1)
-
-var s = 111111;
-var s = 111111;
-var s = 111111;
-var s = 111111;
-var s = 111111;
-var s = 111111;
-var s = 111111;
-var s = 111111;
-var s = 111111;
-var s = 111111;
-var s = 111111;
-var s = 111111;
-var s = 111111;
-var s = 111111;
-var s = 111111;
-var s = 111111;
-var s = 111111;
-console.log('ssssss', s)
+require('./demo3.js')
+var s1 = 111111;
+var s1 = 111111;
+var s1 = 111111;
+var s1 = 111111;
+var s1 = 111111;
+var s1 = 111111;
+var s1 = 111111;
+var s1 = 111111;
+var s1 = 111111;
+var s1 = 111111;
+var s1 = 111111;
+var s1 = 111111;
+var s1 = 111111;
+var s1 = 111111;
+var s1 = 111111;
+var s1 = 111111;
+var s1 = 111111;
+console.log('ssssss', s1)

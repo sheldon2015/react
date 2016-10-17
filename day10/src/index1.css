@@ -1,3 +1,26 @@
-#yaowenzhu1{
-    background-color: green;
+.a {
+    color: red;
 }
+
+:global .a {
+    color: black;
+
+}
+
+.b .c {
+    color: purple;
+}
+
+.b :global(.c) .d{
+    color: blue;
+}
+
+
+
+.define-class{
+    composes:a;
+    background: red;
+}
+
+
+

@@ -3,8 +3,10 @@ import ReactDom from 'react-dom';
 import sync from './sync';
 
 require('./common.css');
-require('./index1.css');
+const style = require('./index1.css');
+
 console.log('demo01')
+console.log('style', style)
 
 require.ensure(['./async'], function (require) {
 
@@ -20,6 +22,7 @@ const Hello = React.createClass({
 
         return (
             <div>
+                <p className={style.a}>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
                 webpack demo using jsx demo01.
                 <p>demo01</p>
             </div>
