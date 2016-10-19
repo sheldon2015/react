@@ -5,6 +5,7 @@ import sync from './sync';
 require('./common.css');
 const style = require('./index1.css');
 
+
 console.log('demo01')
 console.log('style', style)
 
@@ -22,9 +23,9 @@ const Hello = React.createClass({
 
         return (
             <div>
-                <p className={style.a}>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                <p className={style.a}>aa</p>
                 webpack demo using jsx demo01.
-                <p>demo01</p>
+                <p>aaaaaa</p>
             </div>
         )
     }

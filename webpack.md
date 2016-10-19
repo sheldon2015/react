@@ -1,14 +1,14 @@
 # webpack
 
-## day01
 
-- ### 安装webpack依赖，直接在命令行输入
+
+- ## 安装webpack依赖，直接在命令行输入
 
     `webpack **`
 
     `webapck --config **(配置文件)`
 
-- ### 配置webpack.config.js文件在里面写入配置项
+- ## 配置webpack.config.js文件在里面写入配置项
 
 1. entry指定入口文件
 
@@ -106,6 +106,12 @@
 
 1. code splitting 异步加载
 
+    require.ensure([],callback)处理按需加在的代码块，分割代码
+
+    bundle-loader也提供了代码分割的功能
+
+
+
 1. 代码块(chunk)
 
     entry chunk   normal chunk   initial chunk 三种chunk
@@ -126,10 +132,18 @@
     css-loader?modules
 
     ```
+1. webpack.DefinePlugin插件
+
+    在windows的cmd命令行下(不是powershell)通过set命令设置环境变量,然后执行`webpack-dev-server`可以传入参数
+
+    ```cmd
+    set DEBUG=true
+
+    webpack-dev-server
+    ```
 
 
 
-    
 
 
 

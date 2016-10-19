@@ -1,9 +1,12 @@
+@import './importcss.css';
+
 .a {
     color: red;
 }
 
 :global .a {
     color: black;
+     
 
 }
 
