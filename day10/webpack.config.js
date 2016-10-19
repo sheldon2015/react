@@ -48,6 +48,14 @@ module.exports = {
         'jquery1111': '$' //[key(require引用的名字),value(jquery库暴露的的接口名字)]
     },
     module: {
+        preLoaders: [
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                loader: 'postcss'
+            }
+
+        ],
 
         loaders: [
             {
@@ -61,11 +69,11 @@ module.exports = {
             }, {
                 test: /\.css$/,
                 exclude: /node_modules/,
-                loader: ExtractTextPlugin.extract('style', "css?modules&camelCase&importLoaders=1", 'postcss?sourceMap=inline')
+                loader: ExtractTextPlugin.extract(['style'], "css?camelCase")
             }, {
                 test: /\.less$/,
                 exclude: /node_modules/,
-                loader:'less'
+                loader: 'style!css!less-loader'
             },
             //如果图片的资源大小大于limit在外部引入，不然就声称data urls嵌入
             {
@@ -77,6 +85,7 @@ module.exports = {
 
     },
     postcss: function () {
-        return [require('precss'), require('autoprefixer')];
+
+        return [require('autoprefixer')];
     }
 }

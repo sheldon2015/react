@@ -1,6 +1,8 @@
 var a = 'async';
 require('./common.css');
 require('./index4.css');
-// require('./style.less');
+const   style=require('./style.less');
+
+console.log('style111',style)
 
 export default a;

@@ -1,5 +1,9 @@
- .qq{
+.qq {
 
     display: flex;
     transition: all .3s;
+}
+
+.ywz {
+    flex: 1;
 }

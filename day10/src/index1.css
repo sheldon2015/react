@@ -1,12 +1,12 @@
 @import './importcss.css';
 
-.a {
+:local .a {
     color: red;
+     background: url('./photo.png');
 }
 
-:global .a {
+:global .aaaaaaaaaaaaa {
     color: black;
-     
 
 }
 
@@ -14,16 +14,16 @@
     color: purple;
 }
 
-.b :global(.c) .d{
+
+/*坑 ，格式化的时候注意：前有空格*/
+
+.b   :global(.c) .d {
     color: blue;
+    display: flex;
+    transition: all .3s;
 }
 
-
-
-.define-class{
-    composes:a;
+:local  .define-class {
+    composes: a;
     background: red;
 }
-
-
-
