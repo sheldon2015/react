@@ -3,40 +3,40 @@ webpackJsonp([0],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(2);
-	module.exports = __webpack_require__(185);
+	__webpack_require__(1);
+	module.exports = __webpack_require__(181);
 
 
 /***/ },
 
-/***/ 2:
+/***/ 1:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _react = __webpack_require__(3);
+	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(36);
+	var _reactDom = __webpack_require__(35);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _sync = __webpack_require__(174);
+	var _sync = __webpack_require__(173);
 
 	var _sync2 = _interopRequireDefault(_sync);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	__webpack_require__(175);
-	var style = __webpack_require__(178);
+	__webpack_require__(174);
+	var style = __webpack_require__(177);
 
 	console.log('demo01');
 	console.log('style', style);
 
 	__webpack_require__.e/* nsure */(1, function (require) {
 
-	    var async = __webpack_require__(179);
+	    var async = __webpack_require__(178);
 
 	    console.log('async', async);
 	});
@@ -67,7 +67,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 174:
+/***/ 173:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76,14 +76,14 @@ webpackJsonp([0],{
 	    value: true
 	});
 	var a = 'sync';
+	__webpack_require__(174);
 	__webpack_require__(175);
-	__webpack_require__(176);
-	__webpack_require__(176);
+	__webpack_require__(175);
 	// const ss=require('data');
 	// console.log('data',ss.Data)
 
 
-	var jQuery1111 = __webpack_require__(177);
+	var jQuery1111 = __webpack_require__(176);
 
 	console.log('$', jQuery1111);
 
@@ -98,6 +98,13 @@ webpackJsonp([0],{
 
 /***/ },
 
+/***/ 174:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
 /***/ 175:
 /***/ function(module, exports) {
 
@@ -108,18 +115,11 @@ webpackJsonp([0],{
 /***/ 176:
 /***/ function(module, exports) {
 
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 177:
-/***/ function(module, exports) {
-
 	module.exports = $;
 
 /***/ },
 
-/***/ 178:
+/***/ 177:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
@@ -127,23 +127,23 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 185:
+/***/ 181:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _react = __webpack_require__(3);
+	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(36);
+	var _reactDom = __webpack_require__(35);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	__webpack_require__(175);
-	__webpack_require__(186);
+	__webpack_require__(174);
+	__webpack_require__(182);
 	console.log('demo02');
 
 	var Hello = _react2.default.createClass({
@@ -167,7 +167,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 186:
+/***/ 182:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

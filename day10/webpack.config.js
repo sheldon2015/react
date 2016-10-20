@@ -1,6 +1,11 @@
 const webpack = require('webpack');
+const path = require('path');
 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const extcss = new ExtractTextPlugin("name.css", {allChunks: true})
+const extless = new ExtractTextPlugin("name1.css", {allChunks: true})
+
 const HtmlwebpackPlugin = require("html-webpack-plugin");
 const OpenBrowserPlugin = require("open-browser-webpack-plugin");
 const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
@@ -27,7 +32,8 @@ module.exports = {
         new CommonsChunkPlugin("vendor", "vendor.bundle.js"),
         //配置热加载
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin("name.css", {allChunks: true}),
+        extcss,
+        extless,
         // new UglifyJsPlugin({     compress: {         warnings: true     } }), new
         // HtmlwebpackPlugin({title: 'Webpack-demos', filename: 'index.html'}),
         new OpenBrowserPlugin({url: 'http://localhost:3000', browser: 'chrome', ignoreErrors: true}),
@@ -69,21 +75,43 @@ module.exports = {
             }, {
                 test: /\.css$/,
                 exclude: /node_modules/,
-                loader: ExtractTextPlugin.extract(['style'], "css?camelCase")
+                // modules可以设置css模块化（其实就是局部和全局作用域），通过显示设置：global 和：locale也可以实现，
+                // 只是设置modules后默认为局部作用域
+                loader: extcss.extract('style', "css?camelCase")
             }, {
                 test: /\.less$/,
                 exclude: /node_modules/,
-                loader: 'style!css!less-loader'
+                loader: 'postcss!less'
+
             },
             //如果图片的资源大小大于limit在外部引入，不然就声称data urls嵌入
             {
                 test: /\.png$/,
+                exclude: /node_modules/,
                 loader: "url-loader?limit=1000"
             }
 
+        ],
+        postLoaders: [
+
+            {
+                test: /\.less$/,
+                exclude: /node_modules/,
+                loader: extless.extract('style', 'css')
+
+            }
         ]
 
     },
+
+    resolve: {
+        root: [path.resolve('./src')], //loader resolve 资源的路径
+        fallback: path.join(__dirname, 'node_modules')
+    },
+    resolveLoader: {
+        fallback: path.join(__dirname, "node_modules")
+    },
+    devtool: "source-map", //生成sourcemap文件
     postcss: function () {
 
         return [require('autoprefixer')];

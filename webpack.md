@@ -140,7 +140,17 @@
     set DEBUG=true
 
     webpack-dev-server
+    
     ```
+
+1. 调试的时候可以在命令行写入参数  `--display-error-details`,查看解析模块查找过程
+
+
+1. loader的运用
+
+    直接在require里应用loader和config里面运用loader，会用差别。require里面的loader可以覆盖config中的
+
+    loader的resolve资源的路径会有不同
 
 
 
