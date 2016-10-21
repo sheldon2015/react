@@ -37,6 +37,7 @@ module.exports = {
         // new UglifyJsPlugin({     compress: {         warnings: true     } }), new
         // HtmlwebpackPlugin({title: 'Webpack-demos', filename: 'index.html'}),
         new OpenBrowserPlugin({url: 'http://localhost:3000', browser: 'chrome', ignoreErrors: true}),
+        //注入jquery,不用require引用
         //  new ProvidePlugin({$: "jquery", jQuery: "jquery", "window.jQuery":
         // "jquery"})
         new DefinePlugin({
@@ -75,7 +76,7 @@ module.exports = {
             }, {
                 test: /\.css$/,
                 exclude: /node_modules/,
-                // modules可以设置css模块化（其实就是局部和全局作用域），通过显示设置：global 和：locale也可以实现，
+                // modules可以设置css模块化（其实就是局部和全局作用域），通过显示设置。：global 和：locale也可以显示实现，
                 // 只是设置modules后默认为局部作用域
                 loader: extcss.extract('style', "css?camelCase")
             }, {
