@@ -37,9 +37,8 @@ module.exports = {
         // new UglifyJsPlugin({     compress: {         warnings: true     } }), new
         // HtmlwebpackPlugin({title: 'Webpack-demos', filename: 'index.html'}),
         new OpenBrowserPlugin({url: 'http://localhost:3000', browser: 'chrome', ignoreErrors: true}),
-        //注入jquery,不用require引用
-        //  new ProvidePlugin({$: "jquery", jQuery: "jquery", "window.jQuery":
-        // "jquery"})
+        // 注入jquery,不用require引用  new ProvidePlugin({$: "jquery", jQuery: "jquery",
+        // "window.jQuery": "jquery"})
         new DefinePlugin({
             _DEV: JSON.stringify(JSON.parse(process.env.DEBUG || 'false'))
         })
