@@ -24,40 +24,40 @@ function someTask1() {
 exports.someTask = someTask
 exports.someTask1 = someTask1
 gulp.task('someTask2', (done) => {
-    console.log('aaa')
-    done();
+        console.log('aaa')
+        done();
 
-})
-// 并行任务与串行任务
+    })
+    // 并行任务与串行任务
 
-gulp.task('one', function (done) {
+gulp.task('one', function(done) {
     // do stuff
     done();
 });
 
-gulp.task('two', function (done) {
+gulp.task('two', function(done) {
     // do stuff
     done();
 });
 
 // 并行任务，任务执行完成可以添加回调函数
-gulp.task('parallelTask', gulp.parallel('one', 'two', function (done) {
+gulp.task('parallelTask', gulp.parallel('one', 'two', function(done) {
     done();
 }));
 
 // 串行任务
-gulp.task('seriesTask', gulp.series('one', 'two', function (done) {
+gulp.task('seriesTask', gulp.series('one', 'two', function(done) {
     done();
 }));
 
 //文件监控
 var watcher = gulp.watch('*.md', gulp.series('one'));
-watcher.on('change', function (path, stats) {
+watcher.on('change', function(path, stats) {
     //文件更改
     console.log('File ' + path + ' was changed');
 });
 
-watcher.on('unlink', function (path) {
+watcher.on('unlink', function(path) {
     //文件删除
     console.log('File ' + path + ' was removed');
 });

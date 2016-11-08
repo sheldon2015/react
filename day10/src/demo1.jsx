@@ -25,7 +25,7 @@ const Hello = React.createClass({
             <div>
                 <p className={style.a}>aa</p>
                 webpack demo using jsx demo01.
-                <p>aaaaaa</p>
+                <p>aaaaaa11111111111</p>
             </div>
         )
     }

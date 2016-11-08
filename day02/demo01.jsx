@@ -3,6 +3,7 @@ var nameArry = ['a', 'b', 'c', 'd'];
 var Button = React.createClass({
 
     getInitialState() {
+       
         return {
             class: 'classA',
             name: nameArry

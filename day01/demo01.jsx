@@ -4,8 +4,7 @@ var Hello = React.createClass({
         return (
 
             <li>
-                Hello
-                {this.props.name}
+                Hello {this.props.name}
             </li>
         )
 
@@ -16,9 +15,9 @@ var Hello = React.createClass({
 
 var testarr = [
     <div> 数组1 </div>,
-    <div>数组2</div >,
+    <div>数组2</div>,
     <div> 数组3 </div>,
-    <div>数组4</div >
+    <div>数组4</div>
 ];
 
 var TestArry = React.createClass({
@@ -33,7 +32,7 @@ var TestArry = React.createClass({
 
 var World = React.createClass({
     getDefaultProps() {
-        return {name: 'bbbbbbbbbbbbbbbbbbbb'}
+        return { name: 'bbbbbbbbbbbbbbbbbbbb' }
     },
     componentDidMount() {
         //findDomNode方法
@@ -64,7 +63,7 @@ var World = React.createClass({
 
     getInitialState() {
 
-        return {value: ''}
+        return { value: '' }
 
     },
 
@@ -80,8 +79,8 @@ var World = React.createClass({
             console.log(eventType); // => "click"
         });
 
-        this.setState({clickEvent: event}); // Won't work. this.state.clickEvent will only contain null values.
-        this.setState({eventType: event.type}); // You can still export event properties.
+        this.setState({ clickEvent: event }); // Won't work. this.state.clickEvent will only contain null values.
+        this.setState({ eventType: event.type }); // You can still export event properties.
 
         console.log('event', event)
         console.log('event', event.type);
@@ -90,10 +89,10 @@ var World = React.createClass({
     },
 
     handleChange(event) {
-        this.setState({value: event.target.value})
+        this.setState({ value: event.target.value })
 
     },
-    handleChange2() {},
+    handleChange2() { },
 
     render() {
         //驼峰式命名(有前缀的使用大驼峰，ms除外)
@@ -119,16 +118,14 @@ var World = React.createClass({
                         实验props的children属性4
                     </div>
                 </Hello>
-                <Checkbox ref='checkbox'/>
+                <Checkbox ref='checkbox' />
                 <div ref='name'>
                     {this.props.name}
                 </div>
                 <div ref='children'>
                     {this.props.children}
                 </div>
-                {/**
-                                                                                                            this.props的返回值可能为null，对象或者数组。可以用React.Children.map方法迭代
-                                                                                                         */}
+                {/** this.props的返回值可能为null，对象或者数组。可以用React.Children.map方法迭代 */}
                 <button onClick={this.clickHandler}>绑定事件</button>
                 <select onChange={this.handleChange2} value='B'>
                     <option value="A">Apple</option>
@@ -136,9 +133,9 @@ var World = React.createClass({
                     <option value="C">Cranberry</option>
                 </select>
                 {/*非受控组建，defaultValue设置默认值 */}
-                <input onChange={this.handleChange} type="text" defaultValue=''/>
+                <input onChange={this.handleChange} type="text" defaultValue='' />
                 {/*受控组建 */}
-                <input style={style} type="text" value={this.state.value}/>
+                <input style={style} type="text" value={this.state.value} />
             </div>
 
         )
@@ -164,7 +161,7 @@ var Checkbox = React.createClass({
 
     },
     getInitialState() {
-        return {check: true, class: 'classA'}
+        return { check: true, class: 'classA' }
     },
     render() {
         /* state对象管理状态 */
@@ -179,7 +176,7 @@ var Checkbox = React.createClass({
                     onChange={this.handleChange}
                     type='checkbox'
                     className={this.state.class}
-                    checked={this.state.check}/>
+                    checked={this.state.check} />
             </div>
         )
 
@@ -191,8 +188,7 @@ function StatelessComponent(props) {
     return (
         <div>
             <div>
-                Hello
-                {props.name}
+                Hello {props.name}
             </div>
             <button onClick={props.onClick}>按钮</button>
         </div>
@@ -214,13 +210,13 @@ var ListView = React.createClass({
     render() {
         /*注释的写法 */
         var s = arr.map(function (el, index) {
-            return (<Hello key={index} name={el}/>);
+            return (<Hello key={index} name={el} />);
         });
         return (
 
             <div>
-                <TestArry/>
-                <Checkbox/>
+                <TestArry />
+                <Checkbox />
                 <div>
                     {this.props.name}
                 </div>
@@ -236,13 +232,13 @@ var ListView = React.createClass({
                         实验props的children属性3</div>
                     <div>
                         实验props的children属性4</div>
-                    <Hello/>
+                    <Hello />
                 </World>
-                <StatelessComponent onClick={this._clickHandle} name='yaowenzhu'/>
+                <StatelessComponent onClick={this._clickHandle} name='yaowenzhu' />
             </div>
         );
     }
 });
 
 ReactDOM.render(
-    <ListView name='aaaaaa'/>, document.getElementById('example'));
+    <ListView name='aaaaaa' />, document.getElementById('example'));
