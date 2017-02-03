@@ -48,8 +48,7 @@ var World = React.createClass({
         var children = this.refs.children
         console.log('children', children);
         console.log('children1', ReactDOM.findDOMNode(children));
-        console.log('children2', children.getDOMNode());
-
+       
         var zzzz = this.refs.zzzz
         console.log('zzzz', zzzz);
 
@@ -75,8 +74,8 @@ var World = React.createClass({
         //异步函数
 
         setTimeout(function () {
-            console.log(event.type); // => null
-            console.log(eventType); // => "click"
+            console.log('settimeout',event.type); // => null
+            console.log('settimeout',eventType); // => "click"
         });
 
         this.setState({ clickEvent: event }); // Won't work. this.state.clickEvent will only contain null values.
